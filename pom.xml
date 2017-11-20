@@ -48,19 +48,24 @@
             <artifactId>neko-htmlunit</artifactId>
             <version>2.28</version>
         </dependency>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>3.7</version>
+        </dependency>
 
     </dependencies>
 
     <build>
         <plugins>
-            <!--<plugin>
+            <plugin>
                 <groupId>org.apache.tomcat.maven</groupId>
                 <artifactId>tomcat7-maven-plugin</artifactId>
                 <version>2.2</version>
                 <configuration>
-                    <httpPort>8080</httpPort>
+                    <httpPort>8081</httpPort>
                 </configuration>
-                <executions>
+                <!--<executions>
                     <execution>
                         <id>run-tomcat</id>
                         <phase>pre-integration-test</phase>
@@ -75,14 +80,13 @@
                             <goal>shutdown</goal>
                         </goals>
                     </execution>
-                </executions>
-            </plugin>-->
+                </executions>-->
+            </plugin>
             <plugin>
                 <groupId>org.codehaus.cargo</groupId>
                 <artifactId>cargo-maven2-plugin</artifactId>
                 <version>1.6.5</version>
                 <configuration>
-
                     <!--<configuration>
                         <properties>
                             <cargo.servlet.port>8080</cargo.servlet.port>
@@ -90,6 +94,10 @@
                             <cargo.tomcat.uriencoding>UTF-8</cargo.tomcat.uriencoding>
                         </properties>
                     </configuration>-->
+                    <container>
+                        <containerId>tomcat8x</containerId>
+                        <type>embedded</type>
+                    </container>
                 </configuration>
                 <executions>
                     <execution>
